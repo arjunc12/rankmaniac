@@ -1,0 +1,10 @@
+FinalRank:29.281760	89
+FinalRank:23.315706	223
+FinalRank:16.893070	441
+FinalRank:8.054729	693
+FinalRank:6.966476	45
+FinalRank:6.208602	44
+FinalRank:5.869953	139
+FinalRank:5.744268	945
+FinalRank:5.361423	338
+FinalRank:4.841198	140

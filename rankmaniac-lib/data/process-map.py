@@ -7,5 +7,8 @@ import sys
 #
 
 for line in sys.stdin:
-    sys.stdout.write(line)
+    tokens = line.split('\t')
+    info = tokens[1].split(',')
+    pagerank = float(info[0])
+    sys.stdout.write("1\t" + str(1.0/pagerank) + "," + tokens[0] + '\n')
 

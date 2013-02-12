@@ -11,5 +11,6 @@ for line in sys.stdin:
     pagerank = float(info[0])
     ## print the inverse of the pagerank and the page corresponding to the pagerank
     ## print the inverse so that the results are sorted in descending order
-    sys.stdout.write("1\t" + str(1.0/pagerank) + "," + tokens[0] + '\n')
+    if pagerank > 1:
+        sys.stdout.write("1\t" + str(pagerank) + "," + tokens[0] + '\n')
 

@@ -1,8 +1,9 @@
 #!/usr/bin/env python
 
 import sys
+from collections import defaultdict
 
-i = 0
+d = defaultdict(list)
 for line in sys.stdin:
     ## split on the tab
     tokens = line.split('\t')
@@ -10,18 +11,20 @@ for line in sys.stdin:
     info = tokens[1].split(',')
     ## the first element of info contains the inverse pagerank
     ## inverse it again to get the final pagerank
-    pagerank = 1 / float(info[0])
+    pagerank = float(info[0])
     ## the first 7 characters of the second element have text
     ## the 8th character marks the start of the node number
     node = info[1][7:]
     ## print out the node and its final pagerank
-    sys.stdout.write("FinalRank:" + str(pagerank) + '\t' + node)
-    
-    ## increment the counter
-    ## mapreduce sorts in ascending order by inverse pagerank
-    ## which is equivalent to sorting by pagerank in descending order
-    ## thus the first ten values correspond to the top ten values
-    i += 1
+    d[pagerank] += [node]
+
+i = 0
+for key in sorted(d, reverse=True):
+    for node in d[key]:
+        sys.stdout.write("FinalRank:" + str(key) + '\t' + node)
+        i += 1
+        if i == 10:
+            break
     if i == 10:
         break
 

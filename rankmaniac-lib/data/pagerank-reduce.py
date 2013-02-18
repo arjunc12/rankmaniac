@@ -9,6 +9,7 @@ for line in sys.stdin:
     line = line.strip()
     ## split on the tab delimiter
     tokens = line.split('\t')
+    
     ## the results of map are grouped by node
     ## i.e. we have a bunch of key value pairs in which the key is the
     ## node to which pagerank is being added and each value represents
